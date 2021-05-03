@@ -1,6 +1,17 @@
 
 C264 Final
 
+           32-bit size      64-bit size
+Char -       1 byte             1 byte
+Short -      2 byte             2 byte
+Int -        4 bytes            4 byte
+Float -      4 bytes            4 byte
+long -       4 bytes            8 byte
+long long -  8 bytes            8 byte
+double -     8 bytes            8 bytes
+
+
+
 Original
 When compiler optimization is impeded because of two different variables having a possibility of referring to the same location, the phenomenon is referred to as:
 A. aliasing
@@ -138,3 +149,87 @@ With an 8-bit stored exponent from which a "bias" will be subtracted to yield th
 
 Optimization Blocker: Function Calls
 The idea that a function call cannot be optimized due to side effects - EX. f(x) + f(x) may not be equal to 2*f(x)
+
+
+
+Assume that every memory address Q that is accessed contains Q+1. For example, memory address 100 contains the value 101, etc.
+
+Also assume that the following registers contain the values shown. (All values are in decimal, and your answers can be in decimal.
+
+Register	Value
+%rax	3
+%rbx	176
+Fill in the values for the indicated operands in the following table:
+
+Operand	Value
+$517	 517
+%rax	 3
+87	 88
+(%rax)	 4
+38 (%rax)	 42
+50 (%rax,%rbx,2)	 406
+
+
+
+Assume that every memory address Q that is accessed contains Q+1. For example, memory address 100 contains the value 101, etc.
+
+Also assume that the following registers contain the values shown. (All values are in decimal, and your answers can be in decimal.
+
+Register	Value
+%rcx	8
+%rdx	150
+%rsp	2024
+Show the effects of the following instructions both in terms of the register or memory location that will be updated and the resulting value. (Consider each instruction independently from the others.)
+
+Instruction  	          Destination  	  Value  
+leaq (,%rcx,4), %rdx	    %rdx	         32
+movq $80, (%rcx,%rdx)	    M[158]	       80
+negq %rcx	 %rcx	          %rcx           -8
+addq %rcx, 4(%rdx)	      M[154]	      163
+salq $1, %rcx	 %rdx	       %rcx         16
+popq %rcx	 %rcx	          %rcx          2025
+(continuation)            and           and
+(continuation)	          %rax          2025
+
+
+
+Fill in the following table describing the element size, the total size, and the address of element i for the arrays described by the following declarations:
+
+Declaration  	  Array  	  Element size (bytes)  	  Total size (bytes)  	  Start address  	  Address of Element i  
+int A[13]	      A	              4	                        52                    	x_A	                +4i
+double B[7]	    B	              8	                        56	                    x_B	                +8i
+float *C[5]	    C	              8	                        40	                    x_C	                +8i
+
+
+
+
+Suppose the address x_A of an array A of ints is stored in register %rcx, and a long integer index i is stored in register %rdx. For each of the following expressions, give its type, a formula for its value, and an assembly code implementation that places the result in %rbx. (For simplicity, assume %rax can hold floating point data just as it can integer data.)
+
+Expression  	Type  	Value  	      Assembly code      
+A[2*i]	       int	   M[x_A+81]         movl (%rcx,%rdx,8)
+A+8	           int *	 x_A+32            leaq 32(%rcx)
+&A[9]	         int *	 x_A+36	           leaq 36(%rcx)
+
+
+
+For each of the following structure declarations, determine the offset of each field, the total size (bits) of the structure, and its alignment for x86-64.
+
+Note that since curly braces are special characters in Sakai, square brackets are substituted below.
+
+(a) struct P1 [ char a; int i; short j; int k; char c; ];
+
+Offsets: 0, 4, 8, 12, 16
+
+Total size:  20
+
+Alignment:  4
+
+(b) struct P2 [ short s; double f; char c; char d; int j; ];
+
+Offsets:  0, 8, 16, 17, 20,
+
+Total size:  24
+
+Alignment:  8
+
+
