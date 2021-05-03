@@ -1,0 +1,140 @@
+
+C264 Final
+
+Original
+When compiler optimization is impeded because of two different variables having a possibility of referring to the same location, the phenomenon is referred to as:
+A. aliasing
+
+The reason a compiler cannot generally replace "y=f(x)+f(x)" with "y=2*f(x)" is the possibility of:
+C. side-effects
+
+
+Replacing "16*x" with "x<<4" is an example of:
+B. reduction in strength
+
+If the measured time to execute a loop operating on arrays of n elements is 50+5n cycles, then the most plausible time for a version of the loop with unrolling is:
+A. 55+4n
+
+In C programs, when you access a array elements,
+D. there is generally no bounds checking on arrays.
+
+Which of the following (select as many choices as appropriate) is a condition code in our reference architecture?
+B. Carry flag
+C. Zero flag
+E. Overflow flag
+
+Condition codes are set by (choose the single best answer):
+B. Arithmetic and logical operations performed in the ALU.
+
+In the architecture we are looking at, which one of the following is used for the first six arguments passed when a procedure is called?
+D. six specific registers pre-determined by convention
+
+What is the numerical value stored in the variable A after the following C code is executed?
+int *A=100;
+A = A+2;
+108
+
+What is the numerical value stored in the variable x after the following C code is executed?
+int n=100;
+x = *(&n);
+100
+
+Arrays, structures, and unions each provide for storage of differently named or numbered components. Fill in the following table with ``Yes'' or ``No'' to indicate which allow overlapping components and which allow the components to have different types:
+allows overlap? | allows different types?
+
+Array: No | No
+Structure: No | Yes
+Union: Yes | Yes
+
+Which of the following types of control constructs (select as many of the choices as appropriate) is/are typically provided directly in an assembly language?
+A. jump
+C. subroutine call
+
+
+Fill in the number of bits in each of the following registers for the family of architectures we are looking at. Your choices are 1, 8, 16, 32, and 64.
+%rax 64
+%eax 32
+%ax 16
+%al 8
+
+Recall that the most general form of an operand in our assembly language is Imm(r_b,r_i,s) meaning M[Imm+R[r_b]+R[r_i]\cdot s]. Select each of the following operand forms that indicates an operand in main memory (as opposed to a register or the instruction).
+A. (r_a) for M[R[r_a]]
+B. Imm(r_a) for M[Imm+R[r_a]]
+C. Imm for M[Imm]
+
+Give a one-line explanation of the difference between the instructions incb, incl, incw, and incq.
+The difference between incb, incl, incw, and incq is the operands sizes.
+
+Give a one-line definition of what orthogonality in a programming language means.
+Orthogonality means that different features are independent, more Orthogonality means more flexibility for compiling code.
+
+Strength Reduction
+Replacing expensive operations with cheaper ones (EX. replacing a multiplication with a right shift)
+
+Considering a four-bit (non-negative) binary representation with a binary point in the middle, for example 11.11, list the place values from left to right: ____ ,____ ,_____ , and ____
+
+What is the decimal value represented by _____?
+2^1, 2^0, 2^-1, 2^-2, and 2^-2
+
+3/4 or 3.75
+
+
+Fill in the following table with the number of bits in each part of each type of floating point number under the IEEE standard. Your choices are 1, 8, 11, 23, and 52.
+single-precision: 1, 8 , 23
+double-precision: 1, 11, 52
+
+Is the usual type of IEEE floating point number referred to as ``normalized'', ``denormalized'', or a ``special value''?
+normalized
+
+For the number represented as 10101010101010101010101010101010 in single-precision IEEE floating point, is the value positive or negative?
+negative
+
+Code Motion
+the movement of code by a compiler to a place other than where it appears
+in the source program. For example, an expensive but unchanging
+computation might be moved outside a loop.
+
+
+In IEEE floating point, what type of binary notation is used to represent exponents: 2's complement or non-negative?
+non-negative
+
+For each scenario below, write the letter of the condition indicating overflow from the following list:
+(A) A carry out from the leftmost bit.
+(B) No carry out from the leftmost bit.
+(C) The carry out from the leftmost bit differs from the carry in.
+(D) The carry out from the leftmost bit is the same as the carry in.
+(i) Adding two numbers in non-negative notation. A
+(ii) Subtracting two numbers in non-negative notation. B
+(iii) Adding two numbers in two's complement notation. D
+(iv) Subtracting two numbers in two's complement notation. C
+
+How many different integers can we represent using n bits? {2^n|2**n}
+32
+
+What is the number base (radix) for each of:
+binary? 2
+decimal? 10
+octal? 8
+hexadecimal? 16
+
+For each C operator below, write the letter of the corresponding meaning from the following list:
+(A) logical and, (B) logical or, (C) logical exclusive or, (D) logical negation, (E) bitwise and, (F) bitwise or, (G) bitwise exclusive or, (H) bitwise negation
+(i) & E
+(ii) && A
+(iii) | F
+(iv) || B
+(v) ! D
+(vi) ~ H
+(vii) ^ G
+
+Evaluate each of the following:
+(i) 0 AND 1 0
+(ii) 0 OR 1 1
+(iii) 0 XOR 1 1
+(iv) 1 XOR 1 0
+
+With an 8-bit stored exponent from which a "bias" will be subtracted to yield the true exponent, what value makes sense for the bias?
+127
+
+Optimization Blocker: Function Calls
+The idea that a function call cannot be optimized due to side effects - EX. f(x) + f(x) may not be equal to 2*f(x)
