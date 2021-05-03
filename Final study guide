@@ -232,6 +232,17 @@ Total size:  24
 
 Alignment:  8
 
+
+           32-bit size      64-bit size
+Char -       1 byte             1 byte
+Short -      2 byte             2 byte
+Int -        4 bytes            4 byte
+Float -      4 bytes            4 byte
+long -       4 bytes            8 byte
+long long -  8 bytes            8 byte
+double -     8 bytes            8 byte
+
+
              1st  2nd   3rd
 m    C  B E   S    t  s   b
 32 1024 4 4   64  24  6   2
